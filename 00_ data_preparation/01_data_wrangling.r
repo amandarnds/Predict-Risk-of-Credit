@@ -6,3 +6,5 @@ getwd()
 ds<- data.frame(read.csv("credit.csv",header =TRUE))
 View(ds)
 
+#03 - checking dimension
+dim(ds)
