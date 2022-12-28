@@ -30,7 +30,7 @@ fr<- round((prop.table(fa))*100)
 fr
 #barplot
 graph_1 <- barplot(fr, xlab="Credit Status (Target Variable)",
-        ylab="Absolute Frequency",col=c("seagreen", "yellowgreen"),
+        ylab="Relative Frequency",col=c("seagreen", "yellowgreen"),
         main="Frequency(%)",ylim=c(0, lim*1.15))
 text(x=c(graph_1), y=fr, labels=fr, pos=3)
 lim <- par()$usr[4]
