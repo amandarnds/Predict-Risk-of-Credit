@@ -3,7 +3,7 @@ setwd("F:/github/r/Predict-Risk-of-Credit")
 getwd()
 
 # 02 - Coleting the dataset  
-ds<- data.frame(read.csv("credit.csv",header =TRUE))
+ds<- data.frame(read.csv("credit.csv",header =TRUE, stringsAsFactors = TRUE))
 View(ds)
 
 #03 - checking dimension
@@ -15,4 +15,3 @@ colnames(ds)<- c("CheckingAcctStat","Duration", "CreditHistory","Purpose",
                  "SexAndStatus", "OtherDetorsGuarantors","PresentResidenceTime", 
                  "Property","Age","OtherInstallments","Housing","ExistingCreditsAtBank", 
                  "Job","NumberDependents","Telephone","ForeignWorker", "CreditStatus")
-
