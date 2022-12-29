@@ -35,3 +35,14 @@ graph_1 <- barplot(fr, xlab="Credit Status (Target Variable)",
 text(x=c(graph_1), y=fr, labels=fr, pos=3)
 lim <- par()$usr[4]
 box()
+#When we performing Classification,we have to make sure that 
+#there is a balance in the the distribution of each class,
+#otherwise it impacts the Machine Learning algorithms ability to learn all the classe.
+#As shown at the graph graph_1 _Frequency of target variable,
+#we have the class are unbalanced. Therefore, it will be necessary fix it.
+
+
+
+
+
+
