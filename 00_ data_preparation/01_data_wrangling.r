@@ -41,8 +41,21 @@ box()
 #As shown at the graph graph_1 _Frequency of target variable,
 #we have the class are unbalanced. Therefore, it will be necessary fix it.
 
+#07 - Balancing the dataset 
 
+# To balance the datset, it'll be used the  oversampling technique with
+# the ROSE package,where the minority class ("2") will be increased
+library(ROSE)
+ds1 <- ROSE(CreditStatus ~ ., data = ds, seed = 1)$data
+dim(ds1)
+View(ds1)
 
-
-
-
+fr1<- round(prop.table(table(ds1$CreditStatus))*100)
+fr1
+#Graph
+graph_2 <- barplot(fr1, main="Frequency (%)",
+                   col=c("darkblue", "lightblue"),
+                   xlab="Credit Status (Target Variable)",
+                   ylab="Relative Frequency",ylim = c(0, 90))
+text(fr1, x=c(graph_2), y=fr, labels=fr, pos=3)
+#As showed in the graph_2,, we have a balanced dataset now
