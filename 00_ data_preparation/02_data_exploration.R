@@ -23,3 +23,10 @@ uv
 colSums(is.na(ds1))
 #No missing values in this data.Therefore,won´t be necessary to  treat them.
 
+#_______________DETECTION OF PROBLEM______________________
+View(ds1)
+#As show in the dataset above, we find a problem.
+#The numerical variables have been changed.
+#To correct them,I transformed as integer
+ds2<- ds1 %>% mutate_if(is.numeric,as.integer)
+View(ds2)
