@@ -22,12 +22,15 @@ fr<- round((prop.table(fa))*100)
 fr
 
 #barplot
-library(ggplot2)
 graph_1 <- barplot(fr, xlab="Credit Status (Target Variable)",
                    ylab="Relative Frequency",col=c("seagreen", "yellowgreen"),
-                   main="Frequency(%)",ylim=c(0, lim*10))
+                   main="Frequency(%)",ylim = c(0,100))
+
 text(x=c(graph_1), y=fr, labels=fr, pos=3)
 box()
+graph_1
+# As the graph_1, it can see an imbalace of class.However, this only will be 
+# treat after the split of dataset. 
 
 #03- Univariate analyses 
 #To perform univariate analyses, it will be separete the types of datas in 2 groups
@@ -42,3 +45,30 @@ View(ds_numerical)
 ds_categorical <- ds %>% select(where(is.factor))
 View(ds_categorical)
 
+#Nuerical analyses 
+summary(ds_numerical)
+#The variables seem to have a normal distribution since the value of mean and 
+#median is similar, except for credit amount, where the media seems to higher 
+#the median.
+
+#Univariate Analyses
+library(ggplot2)
+
+#Duration - Histogram 
+ggplot(ds_numerical, aes(x =Duration)) + 
+  geom_histogram(aes(y = ..density..),
+                 colour = 1, fill = "white") +
+  geom_density(lwd = 1, colour = 4,
+               fill = 4, alpha = 0.25)+
+  ggtitle('Duration Histogram')
+#As showed in graph_2 - Duration Histogram, we can see a skewed distribuition.
+#Nevertheless, I consider one important variable. 
+
+#Credit Amount - Histogram 
+ggplot(ds_numerical, aes(x =CreditAmount)) + 
+  geom_histogram(aes(y = ..density..),
+                 colour = 1, fill = "white") +
+  geom_density(lwd = 1, colour = 4,
+               fill = 4, alpha = 0.25)+
+  ggtitle('Credit Amount Histogram')
+#As showed in graph_3 - Credit Amount Histogram, we can see asymmetric curve to right.
