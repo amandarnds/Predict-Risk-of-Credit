@@ -72,3 +72,15 @@ ggplot(ds_numerical, aes(x =CreditAmount)) +
                fill = 4, alpha = 0.25)+
   ggtitle('Credit Amount Histogram')
 #As showed in graph_3 - Credit Amount Histogram, we can see asymmetric curve to right.
+
+# Installment Rate 
+#Since we have a discrete variable, a bar plot
+ggplot(ds_numerical, aes(factor(InstallmentRatePecnt), ..count..)) +
+  geom_bar( position = "dodge") + xlab("Installment Rates")
+#it notice that the rate 4 is bigger. 
+
+#  Present Residence Time 
+#Since we have a discrete variable, a bar plot
+ggplot(ds_numerical, aes(factor(PresentResidenceTime), ..count..)) +
+  geom_bar( position = "dodge") + xlab("Present Residence Time ")
+#it notice that the time 4 is bigger. 
